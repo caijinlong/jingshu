@@ -310,4 +310,20 @@
     localStorage.setItem('darkMode', darkMode ? '1' : '0');
     applyTheme();
   });
+
+  // --- Keyboard navigation (← → to switch volumes) ---
+  document.addEventListener('keydown', (e) => {
+    if (!(location.hash || '').startsWith('#/read/')) return;
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    const nav = document.querySelector('.volume-nav');
+    if (!nav) return;
+    const links = nav.querySelectorAll('a');
+    if (e.key === 'ArrowLeft') {
+      const prev = links[0];
+      if (prev && prev.getAttribute('href')) prev.click();
+    } else if (e.key === 'ArrowRight') {
+      const next = links[links.length - 1];
+      if (next && next.textContent.includes('→')) next.click();
+    }
+  });
 })();
