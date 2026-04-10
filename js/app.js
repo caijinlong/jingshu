@@ -27,10 +27,15 @@
   }
 
   function setBreadcrumb(items) {
-    breadcrumb.innerHTML = items.map((item, i) => {
+    let html = '';
+    if (items.length > 1) {
+      html += `<a href="javascript:void(0)" class="back-btn" onclick="history.back()">← 返回</a><span class="sep">|</span>`;
+    }
+    html += items.map((item, i) => {
       if (i === items.length - 1) return `<span>${item.text}</span>`;
       return `<a href="${item.href}">${item.text}</a><span class="sep">/</span>`;
     }).join('');
+    breadcrumb.innerHTML = html;
   }
 
   function encodePath(filePath) {

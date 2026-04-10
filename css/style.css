@@ -114,6 +114,10 @@ a:hover { color: var(--accent-hover); }
 .breadcrumb a { color: var(--text-light); }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb .sep { margin: 0 0.4em; }
+.breadcrumb .back-btn {
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* === Main === */
 #app {
