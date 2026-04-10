@@ -18,6 +18,26 @@
 
 html { font-size: 18px; }
 
+/* === Dark Theme === */
+body.dark-mode {
+  --bg: #1a1a1a;
+  --bg-card: #252525;
+  --text: #d4c8b8;
+  --text-light: #9a8e7e;
+  --accent: #c45c5c;
+  --accent-hover: #d97070;
+  --border: #3d3530;
+  --border-light: #302a25;
+  --ruby-color: #807060;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+body.dark-mode .site-header {
+  background: #2a1515;
+}
+body.dark-mode .back-top {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
 body {
   font-family: var(--font-body);
   background: var(--bg);
@@ -43,6 +63,7 @@ a:hover { color: var(--accent-hover); }
   max-width: 960px;
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
 }
 
 .site-title {
@@ -59,6 +80,26 @@ a:hover { color: var(--accent-hover); }
   opacity: 0.8;
   letter-spacing: 0.2em;
   margin-top: 0.2rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  line-height: 1;
+  padding: 0;
+}
+.theme-toggle:hover {
+  border-color: rgba(255,255,255,0.8);
 }
 
 /* === Breadcrumb === */
@@ -213,10 +254,14 @@ a:hover { color: var(--accent-hover); }
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  padding: 0.6rem 0;
-  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  margin: 0 -1rem 1rem;
   border-bottom: 1px solid var(--border-light);
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
 }
 .reader-toolbar button {
   background: var(--bg-card);
@@ -345,6 +390,35 @@ body.font-large .reader-content { font-size: 1.35rem; }
   padding: 3rem;
   color: var(--text-light);
   font-size: 0.9rem;
+}
+
+/* === Back to Top === */
+.back-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.2s;
+  z-index: 200;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.back-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-top:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 /* === Responsive === */

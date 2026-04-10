@@ -287,4 +287,27 @@
   applyFontSize();
   applyPinyin();
   route();
+
+  // --- Back to top ---
+  const backTopBtn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    backTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  backTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // --- Dark mode ---
+  const themeBtn = document.getElementById('theme-toggle');
+  let darkMode = localStorage.getItem('darkMode') === '1';
+  function applyTheme() {
+    document.body.classList.toggle('dark-mode', darkMode);
+    themeBtn.textContent = darkMode ? '☀️' : '🌙';
+  }
+  applyTheme();
+  themeBtn.addEventListener('click', () => {
+    darkMode = !darkMode;
+    localStorage.setItem('darkMode', darkMode ? '1' : '0');
+    applyTheme();
+  });
 })();
