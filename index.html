@@ -4,29 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>乾隆大藏经</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="乾隆大藏经拼音标注，在线阅读。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#/" class="site-title">乾隆大藏经</a>
-      <span class="site-subtitle">拼音标注 · 在线阅读</span>
-      <button id="theme-toggle" class="theme-toggle" aria-label="切换护眼模式">🌙</button>
-    </div>
-  </header>
+  <div class="sidebar-overlay"></div>
 
-  <nav id="breadcrumb" class="breadcrumb"></nav>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1><a href="#/">乾隆大藏经</a></h1>
+        <p>拼音标注 · 在线阅读</p>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav">
+        <!-- Dynamically populated by app.js -->
+      </nav>
+      <div class="sidebar-footer">
+        &copy; 乾隆大藏经拼音标注整理
+      </div>
+    </aside>
 
-  <main id="app"></main>
+    <!-- Main -->
+    <main class="main-content">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <button class="hamburger" aria-label="菜单">&#9776;</button>
+          <nav id="breadcrumb" class="breadcrumb">首页</nav>
+        </div>
+        <div class="toolbar-right">
+          <button class="tool-btn" id="font-toggle">字 中</button>
+          <button class="tool-btn active" id="pinyin-toggle">拼音 开</button>
+          <button class="tool-btn" id="theme-toggle">☾ 深色</button>
+        </div>
+      </div>
 
-  <button id="back-top" class="back-top" aria-label="回到顶部">↑</button>
+      <div id="app" class="page-content"></div>
+    </main>
+  </div>
 
-  <footer class="site-footer">
-    <p>乾隆大藏经拼音标注整理</p>
-  </footer>
+  <button class="back-to-top" id="back-top" aria-label="返回顶部">&#8593;</button>
 
   <script src="js/data.js"></script>
   <script src="js/markdown-parser.js"></script>
