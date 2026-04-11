@@ -107,7 +107,7 @@
   // --- Font size ---
   const FONT_SIZES = ['font-small', 'font-medium', 'font-large', 'font-xlarge'];
   const FONT_LABELS = ['小', '中', '大', '特大'];
-  let currentFontIdx = parseInt(localStorage.getItem('fontSize') || '1', 10);
+  let currentFontIdx = parseInt(localStorage.getItem('fontSize') || '2', 10);
 
   function applyFontSize() {
     document.body.classList.remove(...FONT_SIZES);
